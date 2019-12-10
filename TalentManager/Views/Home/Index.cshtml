@@ -27,31 +27,66 @@
     </div>*@
 
 
-@section scripts{
-<script type="text/javascript">
-$(document).ready(function () {
-$('#search').click(function () {
-$('#employees').empty();
-$.getJSON("/api/employees", function (data) {
-$.each(data, function (i, employee) {
-var now = new Date();
-var ts = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
-var content = employee.Id + ' ' + employee.Name;
-content = content + ' ' + employee.Department + ' ' + ts;
-$('#employees').append($('<li/>', { text: content }));
-});
-});
-});
-});
-</script>
-}
+@*@section scripts{
+    <script type="text/javascript">
+    $(document).ready(function () {
+    $('#search').click(function () {
+    $('#employees').empty();
+    $.getJSON("/api/employees", function (data) {
+    $.each(data, function (i, employee) {
+    var now = new Date();
+    var ts = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
+    var content = employee.Id + ' ' + employee.Name;
+    content = content + ' ' + employee.Department + ' ' + ts;
+    $('#employees').append($('<li/>', { text: content }));
+    });
+    });
+    });
+    });
+    </script>
+    }
 
+    <div>
+        <div>
+            <h1>Employees Listing</h1>
+            <input id="search" type="button" value="Get" />
+        </div>
+        <div>
+            <ul id="employees" />
+        </div>
+    </div>*@
+
+
+@*//Enable ETAG*@
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#search').click(function () {
+                // Removed for brevity
+            });
+            $('#details').click(function () {
+                $('#employee').empty();
+                $.getJSON("/api/employees/12345", function (employee) {
+                    var now = new Date();
+                    var ts = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
+                    var content = employee.Id + ' ' + employee.Name;
+                    content = content + ' ' + employee.Department + ' ' + ts;
+                    $('#employee').append($('<li/>', { text: content }));
+                });
+            });
+        });
+    </script>
+}
 <div>
     <div>
         <h1>Employees Listing</h1>
         <input id="search" type="button" value="Get" />
+        <input id="details" type="button" value="Details" />
     </div>
     <div>
         <ul id="employees" />
+    </div>
+    <div>
+        <ul id="employee" />
     </div>
 </div>
