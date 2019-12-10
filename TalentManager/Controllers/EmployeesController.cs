@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web.Http;
+using TalentManager.CustomActionFilters.Etags;
 using TalentManager.Etags;
 using TalentManager.Models;
 
@@ -70,6 +71,11 @@ namespace TalentManager.Controllers
             };
             return response;
         }
+
+        [ConcurrencyChecker]
+        public void Put(Employee employee) { }
+
+
 
     }
 }

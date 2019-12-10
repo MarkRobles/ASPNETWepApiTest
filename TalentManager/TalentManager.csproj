@@ -136,8 +136,9 @@
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Etags\EnableETag.cs" />
-    <Compile Include="MessageHandlers\MyHandler.cs" />
+    <Compile Include="CustomActionFilters\Etags\ConcurrencyChecker.cs" />
+    <Compile Include="CustomActionFilters\Etags\EnableETag.cs" />
+    <Compile Include="CustomActionFilters\MessageHandlers\MyHandler.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
