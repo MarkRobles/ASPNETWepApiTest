@@ -49,6 +49,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -138,10 +139,14 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="CustomActionFilters\Etags\ConcurrencyChecker.cs" />
     <Compile Include="CustomActionFilters\Etags\EnableETag.cs" />
-    <Compile Include="CustomActionFilters\MessageHandlers\MyHandler.cs" />
+    <Compile Include="CustomActionFilters\HttpsOnly.cs" />
+    <Compile Include="MessageHandlers\Seguridad\AuthHandler.cs" />
+    <Compile Include="MessageHandlers\MyHandler.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="MessageHandlers\Seguridad\ClaimBasedSecurity\AuthenticationManager.cs" />
+    <Compile Include="MessageHandlers\Seguridad\ClaimBasedSecurity\AuthorizationManager.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
